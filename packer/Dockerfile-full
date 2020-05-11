@@ -5,9 +5,9 @@ ENV PACKER_DEV=1
 
 RUN apk add --no-cache git bash openssl ca-certificates
 RUN go get github.com/mitchellh/gox
-RUN go get github.com/hashicorp/packer
+RUN go get github.com/krantzinator/packer
 
-WORKDIR $GOPATH/src/github.com/hashicorp/packer
+WORKDIR $GOPATH/src/github.com/krantzinator/packer
 
 RUN /bin/bash scripts/build.sh
 

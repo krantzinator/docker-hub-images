@@ -6,8 +6,8 @@ ENV PACKER_SHA256SUM=2abb95dc3a5fcfb9bf10ced8e0dd51d2a9e6582a1de1cab8ccec650101c
 
 RUN apk add --update git bash wget openssl
 
-ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
-ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS ./
+ADD http://packer-release-staging.s3.us-east-2.amazonaws.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
+ADD http://packer-release-staging.s3.us-east-2.amazonaws.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS ./
 
 RUN sed -i '/.*linux_amd64.zip/!d' packer_${PACKER_VERSION}_SHA256SUMS
 RUN sha256sum -cs packer_${PACKER_VERSION}_SHA256SUMS

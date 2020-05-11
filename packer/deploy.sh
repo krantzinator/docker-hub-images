@@ -25,15 +25,15 @@ docker pull alpine
 docker pull golang:alpine
 
 echo "Building docker images for packer ${version}..."
-docker build -f "${base}/Dockerfile-full" -t hashicorp/packer:full .
-docker build -f "${base}/Dockerfile-light" -t hashicorp/packer:light .
-docker tag hashicorp/packer:light hashicorp/packer:${version}
-docker tag hashicorp/packer:light hashicorp/packer:latest
-docker tag hashicorp/packer:full hashicorp/packer:full-${version}
+docker build -f "${base}/Dockerfile-full" -t krantzinator/packer:full .
+docker build -f "${base}/Dockerfile-light" -t krantzinator/packer:light .
+docker tag krantzinator/packer:light krantzinator/packer:${version}
+docker tag krantzinator/packer:light krantzinator/packer:latest
+docker tag krantzinator/packer:full krantzinator/packer:full-${version}
 
 echo "Uploading docker images for packer ${version}..."
-docker push hashicorp/packer:${version}
-docker push hashicorp/packer:full-${version}
-docker push hashicorp/packer:latest
-docker push hashicorp/packer:light
-docker push hashicorp/packer:full
+docker push krantzinator/packer:${version}
+docker push krantzinator/packer:full-${version}
+docker push krantzinator/packer:latest
+docker push krantzinator/packer:light
+docker push krantzinator/packer:full
