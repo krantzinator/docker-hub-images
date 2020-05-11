@@ -1,13 +1,13 @@
 FROM alpine:latest
 MAINTAINER "The Packer Team <packer@hashicorp.com>"
 
-ENV PACKER_VERSION=1.5.6
-ENV PACKER_SHA256SUM=2abb95dc3a5fcfb9bf10ced8e0dd51d2a9e6582a1de1cab8ccec650101c1f9df
+ENV PACKER_VERSION=0.0.15
+ENV PACKER_SHA256SUM=94709d4ad196ad7565f96c9a34871e42b7ef39664533967132fbac78f7ccb38f
 
 RUN apk add --update git bash wget openssl
 
-ADD http://packer-release-staging.s3.us-east-2.amazonaws.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
-ADD http://packer-release-staging.s3.us-east-2.amazonaws.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS ./
+ADD https://packer-release-staging.s3.us-east-2.amazonaws.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
+ADD https://packer-release-staging.s3.us-east-2.amazonaws.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS ./
 
 RUN sed -i '/.*linux_amd64.zip/!d' packer_${PACKER_VERSION}_SHA256SUMS
 RUN sha256sum -cs packer_${PACKER_VERSION}_SHA256SUMS
